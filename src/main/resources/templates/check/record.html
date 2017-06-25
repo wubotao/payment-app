@@ -1,0 +1,72 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="utf-8" />
+  <title>Payment App</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/general.css" />
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div th:switch="${count}">
+      <div class="col-md-6 col-md-offset-3">
+        <h2>Check Result</h2>
+      </div>
+      <div class="col-md-6 col-md-offset-3" th:case="0">
+        <div class="alert alert-danger" role="alert">No record.</div>
+      </div>
+      <div class="col-md-6 col-md-offset-3" th:case="*">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Field</th>
+            <th>Content</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>First Name</td>
+              <td th:text="${record.firstName}"></td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td th:text="${record.lastName}"></td>
+            </tr>
+            <tr>
+              <td>Phone Number</td>
+              <td th:text="${record.phone}"></td>
+            </tr>
+            <tr>
+              <td>Currency</td>
+              <td th:text="${record.currency}"></td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td th:text="${record.amount}"></td>
+            </tr>
+            <tr>
+              <td>Create Time</td>
+              <td th:text="${record.createTime}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <a href="/check" class="btn btn-primary btn-submit">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<script th:inline="javascript">
+</script>
+
+</body>
+</html>

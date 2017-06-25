@@ -1,0 +1,30 @@
+
+.form-submit {
+    text-align: center;
+}
+
+.btn-submit {
+    min-width: 120px;
+}
+
+.dropdown-currency li {
+    cursor: pointer;
+}
+
+.dropdown-currency li:hover a {
+    background: #ddd;
+}
+
+.btn-currency {
+    min-width: 80px;
+}
+
+.panel-payment {
+    margin-top: 50px;
+}
+
+.form-group-error {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #a94442;
+}

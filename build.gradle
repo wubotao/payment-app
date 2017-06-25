@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'payment-app'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.braintreepayments.gateway:braintree-java:2.71.0")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    testCompile("junit:junit")
+    testCompile("io.rest-assured:spring-mock-mvc:3.0.2")
+    compile 'com.paypal.sdk:rest-api-sdk:+' 
+    compile 'redis.clients:jedis:2.9.0'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'mysql:mysql-connector-java:6.0.6'
+    compile 'com.google.guava:guava:21.0'
+    compile 'org.springframework.boot:spring-boot-starter-redis:1.4.7.RELEASE'
+}

@@ -1,0 +1,104 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8" />
+<title>Payment App</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/general.css" />
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <form id="my-checkout-form" class="col-md-6 col-md-offset-3" action="/braintree" method="post">
+      <h2>Payment App</h2>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="first-name">First Name</label>
+            <input id="first-name" type="text" class="form-control" name="first-name" placeholder="First Name" />
+            <div class="form-group-error hidden">The first name should not be empty.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" for="last-name">Last Name</label>
+            <input id="last-name" type="text" class="form-control" name="last-name" placeholder="Last Name" />
+            <div class="form-group-error hidden">The last name should not be empty.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="phone">Phone</label>
+        <input id="phone" type="tel" class="form-control" name="phone" placeholder="Phone" />
+        <div class="form-group-error hidden">The phone number should not be empty.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="amount">Amount</label>
+        <div class="input-group">
+          <input id="amount" type="tel" class="form-control" name="amount" placeholder="10.00" min="1" />
+          <input id="currency-h" type="hidden" name="currency" value="USD"/>
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle btn-currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span id="currency" >USD</span>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right dropdown-currency">
+              <li><a>USD</a></li>
+              <li><a>HKD</a></li>
+              <li><a>JPY</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group-error hidden"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="hosted-field-number">Card Number</label>
+        <div id="hosted-field-number" placeholder="4111 1111 1111 1111"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="hosted-field-cvv">CVV</label>
+        <div id="hosted-field-cvv" placeholder="123"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="hosted-field-expiration-date">Expiration Date</label>
+        <div id="hosted-field-expiration-date" placeholder="04 / 2020"></div>
+      </div>
+
+      <div class="form-group form-submit">
+        <button type="button" class="btn btn-primary btn-submit">Pay</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/braintree-client.min.js"></script>
+<script src="/js/braintree-hosted-fields.min.js"></script>
+<script src="/js/braintree-hosted-fields-bootstrap.js"></script>
+<script src="/js/braintree.js"></script>
+
+<script th:inline="javascript">
+
+var clientToken = [[${clientToken}]];
+
+$('#my-checkout-form').hostedFields({
+  authorization: clientToken,
+  number: '#hosted-field-number',
+  cvv: '#hosted-field-cvv',
+  expirationDate: '#hosted-field-expiration-date',
+})
+
+</script>
+
+</body>
+</html>
