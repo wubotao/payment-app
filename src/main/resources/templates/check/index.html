@@ -20,12 +20,14 @@
           <div class="form-group">
             <label class="control-label" for="first-name">First Name</label>
             <input id="first-name" type="text" class="form-control" name="first-name" placeholder="First Name" />
+            <div class="form-group-error hidden">The first name should not be empty.</div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label class="control-label" for="last-name">Last Name</label>
             <input id="last-name" type="text" class="form-control" name="last-name" placeholder="Last Name" />
+            <div class="form-group-error hidden">The last name should not be empty.</div>
           </div>
         </div>
       </div>
@@ -33,10 +35,11 @@
       <div class="form-group">
         <label class="control-label" for="payment-id">Payment ID</label>
         <input id="payment-id" type="text" class="form-control" name="payment-id" placeholder="Payment ID" />
+        <div class="form-group-error hidden">The payment ID should not be empty.</div>
       </div>
 
       <div class="form-group form-submit">
-        <button type="submit" class="btn btn-primary btn-submit">Search</button>
+        <button type="button" class="btn btn-primary btn-submit">Search</button>
       </div>
     </form>
   </div>
@@ -44,6 +47,7 @@
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/check.js"></script>
 
 <script th:inline="javascript">
 </script>
