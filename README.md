@@ -2,7 +2,9 @@
 
 * Paypal and Braintree merchant account setting in ```config.properties```.
 
-* Database and Redis setting in ```resources/application.properties```.
+* Prerequisite installation ```MySql``` and ```Redis```. 
+
+* Database and Redis setting in ```resources/application.properties```. 
 
 * Database script ```db.sql```.
 
