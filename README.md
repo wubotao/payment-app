@@ -6,7 +6,7 @@
 
 * Database and Redis setting in ```resources/application.properties```. 
 
-* Database script ```db.sql```.
+* Database setup script ```db.sql```.
 
 ### Run
 
