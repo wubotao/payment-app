@@ -2,8 +2,9 @@
 
 * Paypal and Braintree merchant account setting in ```config.properties```.
 
-
 * Database and Redis setting in ```resources/application.properties```.
+
+* Database script ```db.sql```.
 
 ### Run
 
@@ -34,3 +35,5 @@ USD/EUR/AUD/HKD
 Visa: 4111 1111 1111 1111
 
 USD/HKD/JPY
+
+More test card numbers: https://docs.adyen.com/developers/payments/test-cards/test-card-numbers
